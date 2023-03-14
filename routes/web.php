@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminListController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -8,8 +9,10 @@ use App\Http\Controllers\TrendPostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login@Page');
 });
+Route::get('registerPage', [AuthController::class, 'registerPage'])->name('register@Page');
+Route::get('loginPage', [AuthController::class, 'loginPage'])->name('login@Page');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 
