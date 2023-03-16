@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    // Login , Register
+    public function registerPage()
+    {
+        return view('registerPage');
+    }
+
+    // Login
+    public function loginPage()
+    {
+        return view('loginPage');
+    }
     // user login and release token
     public function login(Request $request)
     {
